@@ -6,6 +6,7 @@
 #include "OverlayFunctions.h"
 
 #define MAX_LOADSTRING 100
+#define IDM_STOP_KEYLOGGING 32776
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -46,6 +47,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
     }
+
+    OutputDebugString(L"Message loop exited.\n");
 
     return (int) msg.wParam;
 }
@@ -140,6 +143,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 break;
             case IDM_LOCK_OVERLAY:
                 LockOverlay(hWnd);
+                break;
+            case IDM_START_KEYLOGGING:
+                StartKeylogging(hWnd);
+                break;
+            case IDM_STOP_KEYLOGGING:
+                StopKeylogging();
                 break;
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
