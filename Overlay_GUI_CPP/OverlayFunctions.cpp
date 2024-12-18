@@ -6,12 +6,14 @@
 extern HINSTANCE hInst;
 HHOOK keyboardHook = NULL;
 
+// Function to add a circle to the overlay
 void AddCircle(HWND hWnd)
 {
     // Implementation for adding a circle
     MessageBox(hWnd, L"Circle added!", L"Info", MB_OK);
 }
 
+// Function to add a square to the overlay
 void AddSquare(HWND hWnd)
 {
     // Implementation for adding a square
@@ -22,6 +24,7 @@ void AddSquare(HWND hWnd)
     ReleaseDC(hWnd, hdc);
 }
 
+// Function to lock the overlay in place
 void LockOverlay(HWND hWnd)
 {
     // Implementation for locking the overlay
@@ -29,6 +32,7 @@ void LockOverlay(HWND hWnd)
     MessageBox(hWnd, L"Overlay locked!", L"Info", MB_OK);
 }
 
+// Function to start keylogging
 void StartKeylogging(HWND hWnd)
 {
     // Implementation for starting keylogging
@@ -70,6 +74,7 @@ void StartKeylogging(HWND hWnd)
     }
 }
 
+// Function to stop keylogging
 void StopKeylogging()
 {
     if (keyboardHook != NULL) {

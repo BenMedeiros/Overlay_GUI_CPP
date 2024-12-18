@@ -21,7 +21,6 @@
 #define IDM_START_KEYLOGGING  32775
 #define IDM_STOP_KEYLOGGING 32776
 
-
 #ifndef IDC_STATIC
 #define IDC_STATIC				-1
 #endif
