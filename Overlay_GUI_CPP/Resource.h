@@ -13,6 +13,13 @@
 #define IDI_SMALL				108
 #define IDC_OVERLAYGUICPP			109
 #define IDC_MYICON				2
+
+#define IDM_ADD_CIRCLE      32771
+#define IDM_ADD_SQUARE      32772
+#define IDM_ADD_TRIANGLE    32773
+#define IDM_LOCK_OVERLAY    32774
+
+
 #ifndef IDC_STATIC
 #define IDC_STATIC				-1
 #endif

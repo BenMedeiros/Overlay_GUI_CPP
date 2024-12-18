@@ -27,10 +27,16 @@
     <ClInclude Include="Overlay_GUI_CPP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OverlayFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Overlay_GUI_CPP.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OverlayFunctions.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

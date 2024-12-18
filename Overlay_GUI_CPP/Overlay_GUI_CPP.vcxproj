@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="OverlayFunctions.h" />
     <ClInclude Include="Overlay_GUI_CPP.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="OverlayFunctions.cpp" />
     <ClCompile Include="Overlay_GUI_CPP.cpp" />
   </ItemGroup>
   <ItemGroup>

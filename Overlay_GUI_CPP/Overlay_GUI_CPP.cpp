@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "Overlay_GUI_CPP.h"
+#include "OverlayFunctions.h"
 
 #define MAX_LOADSTRING 100
 
@@ -10,12 +11,6 @@
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-
-// Forward declarations of functions included in this code module:
-ATOM                MyRegisterClass(HINSTANCE hInstance);
-BOOL                InitInstance(HINSTANCE, int);
-LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -136,6 +131,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 break;
             case IDM_EXIT:
                 DestroyWindow(hWnd);
+                break;
+            case IDM_ADD_CIRCLE:
+                AddCircle(hWnd);
+                break;
+            case IDM_ADD_SQUARE:
+                AddSquare(hWnd);
+                break;
+            case IDM_LOCK_OVERLAY:
+                LockOverlay(hWnd);
                 break;
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
