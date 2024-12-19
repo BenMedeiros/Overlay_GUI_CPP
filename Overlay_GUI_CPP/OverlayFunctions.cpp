@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "OverlayFunctions.h"
 #include "Resource.h"
+#include <random>
 
 // Ensure hInst is declared as an external variable
 extern HINSTANCE hInst;
@@ -83,3 +84,43 @@ void StopKeylogging()
         OutputDebugString(L"Keyboard hook unhooked.\n");
     }
 }
+
+UINT_PTR timerId = 1;
+std::random_device rd;
+std::mt19937 gen(rd());
+std::uniform_int_distribution<> disX(0, 800); // Assuming screen width is 800
+std::uniform_int_distribution<> disY(0, 600); // Assuming screen height is 600
+
+void DrawRandomCircle(HWND hWnd)
+{
+    HDC hdc = GetDC(hWnd);
+    int x = disX(gen);
+    int y = disY(gen);
+    Ellipse(hdc, x - 25, y - 25, x + 25, y + 25);
+    ReleaseDC(hWnd, hdc);
+}
+
+void CALLBACK TimerProc(HWND hWnd, UINT message, UINT_PTR idEvent, DWORD dwTime)
+{
+    if (idEvent == timerId)
+    {
+        InvalidateRect(hWnd, NULL, TRUE);
+        DrawRandomCircle(hWnd);
+    }
+}
+
+void StartDrawingCircles(HWND hWnd)
+{
+    // Set a timer to refresh at the monitor's refresh rate (e.g., 60 Hz)
+    timerId = SetTimer(hWnd, timerId, 1000 / 60, TimerProc);
+    if (timerId == 0)
+    {
+        MessageBox(hWnd, L"Failed to create timer!", L"Error", MB_OK);
+    }
+}
+
+void StopDrawingCircles(HWND hWnd)
+{
+    KillTimer(hWnd, timerId);
+}
+

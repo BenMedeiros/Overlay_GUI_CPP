@@ -15,3 +15,9 @@ void LockOverlay(HWND hWnd);
 // Keylogging functions
 void StartKeylogging(HWND hWnd);
 void StopKeylogging();
+
+// Function to start drawing circles
+void StartDrawingCircles(HWND hWnd);
+
+// Function to stop drawing circles
+void StopDrawingCircles(HWND hWnd);
